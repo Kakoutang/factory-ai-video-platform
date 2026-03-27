@@ -13,6 +13,20 @@
 - 前端页面由 Netlify 提供
 - 接口和素材由 Render 提供
 
+## 当前版本说明
+
+当前仓库里的 Render 配置是：
+
+- `免费演示版`
+
+也就是说：
+
+- 可以先跑通演示
+- 不挂持久盘
+- 不适合作为长期正式生产版
+
+如果服务休眠、重启或重新部署，本地文件和 SQLite 数据可能重置。
+
 ## 项目里已经准备好的文件
 
 - [render.yaml](/Users/jennytang/Desktop/AI%20Video/ai-growth-platform/render.yaml)
@@ -38,17 +52,13 @@ render.yaml
 
 - `rootDir=backend`
 - `FastAPI + uvicorn`
-- 持久化磁盘挂载到 `/var/data`
+- `free` 实例
 
 默认环境变量：
 
-- `DATABASE_URL=sqlite:////var/data/app.db`
-- `CLIENT_ASSET_ROOT=/var/data/client-assets`
+- `CORS_ORIGINS`
 
-这意味着：
-
-- 数据库会保存在 Render 持久盘
-- 客户素材也会保存在 Render 持久盘
+数据库和演示数据直接使用仓库里的默认内容。
 
 ## 你需要手动补的环境变量
 
@@ -65,16 +75,6 @@ https://your-netlify-site.netlify.app
 参考文件：
 
 - [.env.render.example](/Users/jennytang/Desktop/AI%20Video/ai-growth-platform/.env.render.example)
-
-## 素材怎么放
-
-后端默认从这里读取素材：
-
-```bash
-/var/data/client-assets
-```
-
-所以你需要把客户素材上传到 Render 服务器的这个目录，或者登录实例后同步进去。
 
 ## 部署完成后会得到什么
 
@@ -106,6 +106,7 @@ NEXT_PUBLIC_API_BASE_URL=https://factory-video-backend.onrender.com
 
 ## 注意事项
 
-- 如果你不挂持久盘，SQLite 和素材都会丢
-- 所以 Render 必须保留磁盘挂载
-- 如果后期客户量更大，再考虑 PostgreSQL 和对象存储
+- 免费版只适合演示
+- 服务可能休眠
+- 本地数据和素材不保证长期保存
+- 如果后期正式给客户用，再切回付费版并挂持久盘

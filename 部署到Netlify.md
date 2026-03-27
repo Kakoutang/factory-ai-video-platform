@@ -26,7 +26,7 @@ Netlify 会使用：
 
 - base: `frontend`
 - build command: `npm run build`
-- publish directory: `frontend/out`
+- publish directory: `out`
 
 ### 2. Netlify 环境变量
 

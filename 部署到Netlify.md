@@ -26,6 +26,7 @@ Netlify 会使用：
 
 - base: `frontend`
 - build command: `npm run build`
+- publish directory: `frontend/out`
 
 ### 2. Netlify 环境变量
 
@@ -70,8 +71,9 @@ https://api.yourdomain.com
 
 - Base directory: `frontend`
 - Build command: `npm run build`
+- Publish directory: `out`
 
-如果 Netlify 自动识别到 `netlify.toml`，这里通常不需要再手改。
+如果页面里已经填了别的值，请改成上面这三个。
 
 ### Environment variables
 
